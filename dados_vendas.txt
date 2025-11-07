@@ -1,0 +1,5 @@
+ID:1001|Produto:Monitor 4K|Quantidade:3|Preco_Unitario:1850.00|Status:Entregue
+ID:1002|Produto:Teclado Mecânico|Quantidade:15|Preco_Unitario:450.50|Status:Pendente
+ID:1003|Produto:Mouse Sem Fio|Quantidade:22|Preco_Unitario:120.99|Status:Em Separação
+ID:1004|Produto:Webcam Full HD|Quantidade:7|Preco_Unitario:310.00|Status:Entregue
+ID:1005|Produto:Headset Gamer|Quantidade:10|Preco_Unitario:580.35|Status:Pendente

@@ -1,0 +1,62 @@
+body{
+    text-align: center;
+    font-family: monospace;
+    align-items: center;
+}
+.video-background-container {
+    /* Define a posição relativa para que o conteúdo e o vídeo possam ser posicionados absolutamente dentro dele */
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Exemplo: define a altura total da janela de visualização */
+    overflow: hidden; /* Evita barras de rolagem desnecessárias */
+}
+
+.video-background-container video {
+    /* Posiciona o vídeo absolutamente para que ele fique atrás do conteúdo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Garante que o vídeo cubra toda a área do contêiner sem distorção, cortando as bordas, se necessário */
+    object-fit: cover; 
+    /* Coloca o vídeo atrás de outros elementos com z-index maior (como o conteúdo) */
+    z-index: -1; 
+}
+
+.content {
+    /* Estilos para o conteúdo que fica sobre o vídeo */
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique visível acima do vídeo */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    /* Adicione estilos adicionais para garantir a legibilidade do texto sobre o vídeo */
+}
+
+/* Opcional: Adicionar um overlay escuro para melhorar a legibilidade do texto */
+.video-background-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+    z-index: 0; /* Entre o vídeo (-1) e o conteúdo (1) */
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .video-background-container video {
+        display: none; /* Oculta o vídeo em dispositivos móveis */
+    }
+
+    .video-background-container {
+        /* Usa a imagem poster como background para dispositivos móveis */
+        background: url('imagem-estatica.jpg') no-repeat center center/cover;
+    }
+}
