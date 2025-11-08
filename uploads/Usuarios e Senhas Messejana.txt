@@ -1,0 +1,39 @@
+##Senhas do Servidor SGI##
+
+Usuario: Administrador
+Senha: #Sgi#ftm!
+
+Usuario: controller 
+Senha : Controller@ftm2025
+
+Usuario: adg 
+Senha: senha definida pelo Martins
+
+Usuario:gerente
+Senha: gerente@123
+
+Usuario: coordenaçao 
+Senha: Centerlid@crd > com C maiusculo
+
+Usuario:secretaria1
+Senha: Centerlid    > com C maiusculo
+
+Usuario:secretaria2 
+Senha: Centerlid   > com C maiusculo
+
+Usuario: caixa 
+Senha: centerlid > com c minusculo 
+
+------------------------------------//
+##Senha do Firewall##
+
+usuario: admin
+senha:future@11
+
+------------------------------------//
+##Senha das Cameras##
+
+cloud:A6AJ4600208H4
+
+Usuario : futuregrt
+Senha :CENT@2025

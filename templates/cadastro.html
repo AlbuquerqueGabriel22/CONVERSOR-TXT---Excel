@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static\css\relatorios.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Cadastro</title>
 </head>
 <body>
-    <label for="name">Seu Nome Completo</label>
-    <input type="text" id="nome_cadastro" required>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename='_IT\'S ME_ The 10 Year FNAF Animation Remake.mp4') }}" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </div>
 
-    <label for="email">Seu Email</label>
-    <input type="email" id="email_cadastro" required>
+    <div class="box">
+        <form action="{{ url_for('cada') }}" method="POST">
+            <h2 class="title">CADASTRE-SE</h2><br>
 
-    <label for="numero">Celular</label>
-    <input type="number" id="celular" required>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <p style="color: rgba(250, 94, 94, 0.8); font-weight: bold;">{{ messages[0][1] }}</p>
+                {% endif %}
+            {% endwith %}
 
-    <label for="idade">Idade</label>
-    <input type="date" id="idade" required>
+            <label for="nome_cadastro">Seu Nome Completo</label>
+            <input type="text" id="nome_cadastro" name="nome" required>
 
-    <label for="senha">Crie uma Senha</label>
-    <input type="password" id="senha_cadastro" required>
+            <label for="email_cadastro">Seu Email</label>
+            <input type="email" id="email_cadastro" name="email" required>
 
-    <label for="senha">Confirme sua Senha</label>
-    <input type="password" id="senha_cadastro" required>
+            <label for="senha_cadastro">Crie uma Senha</label>
+            <input type="password" id="senha_cadastro" name="senha" required>
 
-    <label for="termos"><a href="">Aceitar os Termos de Uso</a></label>
-    <input type="checkbox" name="caixinha" id="caixinha" required>
+            <label for="senha_confirma">Confirme sua Senha</label>
+            <input type="password" id="senha_confirma" name="senha_confirma" required>
 
-
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+    </div>
 </body>
 </html>

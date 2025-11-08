@@ -1,0 +1,66 @@
+##Servidor Sgi##
+
+IP interno: 192.168.80.251
+IP exerno: 206.42.44.165
+
+
+Usuario:adminft
+Senha:#Sgi#crl!
+
+Usuario:Administrador
+Senha:#Sgi#crl!
+
+Usuario:caixa
+Senha:Centerlid  C e maiuscolo
+
+Usuario:controller
+Senha:Controller  C e maiuscolo
+
+Usuario:cobranca
+Senha:Centerlid  C e maiuscolo
+
+Usuario:cobranaca2
+Senha:Centerlid  C e maiuscolo
+
+Usuario:Gestao
+Senha: Definida pelo Usuario
+
+Usuario:Gestao-SGI
+Senha:Definida pelo Usuario
+
+Usuario:auditoria
+Senha:Definida pelo Usuario
+
+Usuario: gerente
+Senha: Definida pelo Usuario
+
+Usuario:coordenaçao
+Senha: Centerlid@crd
+
+Usuario:secretaria
+Senha:Centerlid
+
+Usuario:secretaria2
+Senha:Centerlid
+
+#-------------------------###############
+
+Acesso ao Firewall
+
+URL:https://192.168.80.80:10443
+URL:https://206.42.44.165:10443
+
+Usuario: admin
+Senha:future@11
+
+----------------#####
+
+Senha do DVR
+
+Cloud:Y9KJ48021986V
+
+Usuario: futuregrt
+Senha:CENT@2025
+
+Usuario:admin
+Senha:future@11

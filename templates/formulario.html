@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="static\css\relatorios.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter para Excel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename='_IT\'S ME_ The 10 Year FNAF Animation Remake.mp4') }}" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </div>
 
-    <form method="GET" action="url_for{formulario}">
-      <h1 class="login">Faça seu Login</h1>
+    <div class="box">
+        <form method="POST" action="{{ url_for('fomula') }}" enctype="multipart/form-data">
+            <h2 class="title">Olá, {{ current_user.id.split('@')[0] }}!</h2>
+            <p>Converta seu arquivo TXT para Excel.</p>
 
-      <label for="name">Nome</label><br>
-      <input type="text" id="name" placeholder="Seu Nome" required><br><br>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <p style="color: rgba(250, 94, 94, 0.8); font-weight: bold;">{{ messages[0] }}</p>
+              {% endif %}
+            {% endwith %}
 
-
-      <label for="word">Email</label>
-      <input type="email" id="email" placeholder="Seu Email" required>
-
-      <label for="senha">Senha</label>
-      <input type="senha" id="senha" placeholder="Sua Senha" required>
-
-      <label for="lembra">Lembrar Senha</label>
-      <input type="checkbox" id="lembra">
-
-      <label for="termos">Aceitar Termos de uso</label>
-      <input type="checkbox" id="termos" required>
-    </form>
-
-  <footer>
-    <li>Intagram</li>
-    <li>Linkdin</li>
-    <li>Postifolio</li>
-  </footer>
-  
-  
-  
+            <label for="file">Selecione o arquivo .txt</label>
+            <input type="file" name="file" id="file" accept=".txt" required><br>
+            <button type="submit" class="btn">Converter e Baixar</button>
+        </form>
+        <hr>
+        <a href="{{ url_for('logout') }}"><button class="btn-secondary">Sair (Logout)</button></a>
+    </div>
 </body>
 </html>

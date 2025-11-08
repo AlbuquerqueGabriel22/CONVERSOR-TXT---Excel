@@ -3,82 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static\styler.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Pagina principal</title>
 </head>
-<style>
-  .video-background {
-  /* Garante que a div contenha o vídeo */
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -1; /* Coloca o vídeo atrás de outros elementos */
-}
-
-.video-background video {
-  /* O vídeo deve cobrir toda a área da div */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover; /* Garante que o vídeo não seja distorcido */
-}
-
-.conteudo-principal {
-  /* Estilo do conteúdo que fica por cima do vídeo */
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  padding: 2rem;
-}
-</style>
 <body>
     <div class="video-background">
-  <video autoplay muted loop playsinline poster="">
-    <source src="static/_IT'S ME_ The 10 Year FNAF Animation Remake.mp4" type="video/mp4">
-    Seu navegador não suporta a tag de vídeo.
-  </video>
-</div>
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename='_IT\'S ME_ The 10 Year FNAF Animation Remake.mp4') }}" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </div>
 
-<div class="conteudo-principal">
-  <h1>Seja Bem Vindo!</h1>
-  <p>Faça seu Login ou Cadastre-se</p>
-</div>
+    <div class="conteudo-principal">
+        <h1>Seja Bem Vindo!</h1>
+        <p>Faça seu Login ou Cadastre-se para converter seus arquivos.</p>
+    </div>
 
- <div class="box">
-
-            <form action="/auth" method="POST">
+    <div class="box">
+        <form action="{{ url_for('index') }}" method="POST">
             <h2 class="title">LOGIN</h2><br>
         
-            {% if mensagem_invalida %}
-                <p style="color: rgba(250, 94, 94, 0.8); font-weight: bold;">{{ mensagem_invalida }}</p>
-            {% endif %}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <p style="color: {% if category == 'error' %}rgba(250, 94, 94, 0.8){% else %}#28a745{% endif %}; font-weight: bold;">{{ message }}</p>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
 
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required><br>
-            <label for="email_input">Email:</label>
-            <input type="text" name="email" id="email_input" placeholder="Digite seu e-mail" class="email" required><br> 
-            <label for="senha_input">Senha:</label>
-            <input type="password" name="senha" id="senha_input" class="password" placeholder="Digite sua senha" required><br>
+            <label for="email_input">Email</label>
+            <input type="email" name="email" id="email_input" placeholder="Digite seu e-mail" required><br> 
+            <label for="senha_input">Senha</label>
+            <input type="password" name="password" id="senha_input" placeholder="Digite sua senha" required><br>
             
             <button type="submit" class="btn">Entrar</button>
-            
         </form>
-
+        <hr>
+        <p>Ainda não tem uma conta?</p>
+        <a href="{{url_for('cada')}}"><button class="btn-secondary">Cadastre-se</button></a>
+    </div>
 </body>
 </html>
-
-<br>
-              <h2>Ja tem login? entao continue se divertindo conosco!</h2>
-              <a href="{{url_for('fomula')}}"><button class="bnt" type="submit" >Login</button></a>
-              <br>
-              <h2>Ainda nao tem ? Cadastre-se para nao perder a diversao!</h2>
-              <a href="{{url_for('cada')}}"><button class="bnt" type="submit" >Cadastre-se</button></a>
