@@ -7,11 +7,10 @@ import os
 import json
 
 app = Flask(__name__)
-app.secret_key = 'sua_chave_secreta_aqui' # Importante para usar flash messages
-
+app.secret_key = 'Eren@8511'
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'index' # Redireciona para a página de login se não estiver logado
+login_manager.login_view = 'index'
 login_manager.login_message = "Por favor, faça login para acessar esta página."
 login_manager.login_message_category = "info"
 
@@ -95,15 +94,14 @@ def fomula():
                     sheet.append(cabecalhos)
 
                     for linha in linhas:
-                        # Ignora linhas em branco
                         if not linha.strip():
                             continue
                         
                         campos = linha.strip().split('|')
                         valores = []
                         for campo in campos:
-                            partes = campo.split(':', 1) # Divide no máximo 1 vez
-                            valores.append(partes[1] if len(partes) > 1 else "") # Adiciona o valor ou uma string vazia
+                            partes = campo.split(':', 1) 
+                            valores.append(partes[1] if len(partes) > 1 else "") 
                         sheet.append(valores)
                 
                 excel_filename = f"{Path(filename).stem}.xlsx"

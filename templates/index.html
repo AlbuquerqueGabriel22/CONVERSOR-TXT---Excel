@@ -26,7 +26,7 @@
             {% with messages = get_flashed_messages(with_categories=true) %}
               {% if messages %}
                 {% for category, message in messages %}
-                  <p style="color: {% if category == 'error' %}rgba(250, 94, 94, 0.8){% else %}#28a745{% endif %}; font-weight: bold;">{{ message }}</p>
+                  <p>{{ message }}</p>
                 {% endfor %}
               {% endif %}
             {% endwith %}
