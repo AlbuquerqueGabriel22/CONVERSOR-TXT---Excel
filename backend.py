@@ -7,7 +7,7 @@ import os
 import json
 
 app = Flask(__name__)
-app.secret_key = 'Eren@8511'
+app.secret_key = '85119671@gg'
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'index'
